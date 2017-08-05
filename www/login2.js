@@ -9,7 +9,7 @@ var login = function (){
 
     //signin
     const promise = auth.signInWithEmailAndPassword(email, pass);
-    document.getElementById('myNavigator').pushPage('homeScreen.html');
+    //document.getElementById('myNavigator').pushPage('homeScreen.html');
 
 };
 
@@ -41,4 +41,29 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     } else {
         console.log('not logged in');
     }
+});
+
+var singleCat = function(){
+    document.getElementById('myNavigator').pushPage('singleCat.html');
+};
+
+var singUserWork = function(){
+    document.getElementById('myNavigator').pushPage('singUserWork.html');
+};
+
+var singUserPost = function(){
+    document.getElementById('myNavigator').pushPage('singUserPost.html');
+};
+
+var jobDetails = function(){
+    document.getElementById('myNavigator').pushPage('jobDetails.html');
+};
+
+//pull categories data from database
+ons.ready(function(){
+    var databaseRef = firebase.database().ref();
+    databaseRef.on("value", snapshot => {
+        console.log(snapshot.val());
+    });
+    
 });
