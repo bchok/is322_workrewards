@@ -12,6 +12,21 @@
   <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
   <link rel="stylesheet" href="css/style.css">
 
+  <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+        
+        <script>
+            // Initialize Firebase
+            var config = {
+            apiKey: "AIzaSyBSim4osENkJiVaGNZIURWS98h3mHZUUVY",
+            authDomain: "work-rewards.firebaseapp.com",
+            databaseURL: "https://work-rewards.firebaseio.com",
+            projectId: "work-rewards",
+            storageBucket: "",
+            messagingSenderId: "343806668566"
+            };
+            firebase.initializeApp(config);
+        </script>
+
   <script>
     ons.ready(function() {
       console.log("Onsen UI is ready!");
@@ -19,13 +34,32 @@
   </script>
 </head>
 <body>
-  
-  <ons-tabbar>
-    <ons-tab label="Home" icon="md-home" page="homeTab.html" active></ons-tab>
-    <ons-tab label="Work" icon="md-assignment-check" page="work.html"></ons-tab>
-    <ons-tab label="Profile" icon="md-account-box" page="profile.html"></ons-tab>
-  </ons-tabbar>
 
+  <ons-navigator id="myNavigator" page="index.html">
+    <ons-page id="index">
+      <ons-toolbar>
+        <div class="center">Login or SignUp</div>
+      </ons-toolbar>
+        <h1 style="text-align: center"> Work Rewards </h1>
+        <img src="tools.png" alt="Work Rewards" style="display: block; margin: auto;">
+            
+        <div style="text-align: center; margin-top: 30px;">
+          <p>
+            <ons-input id="txtEmail" modifier="underbar" placeholder="Email" float></ons-input>
+          </p>
 
+          <p>
+            <ons-input id="txtPassword" type="password" modifier="underbar" placeholder="Password" float></ons-input>
+          </p>
+
+            <ons-button id="btnLogin">Log in </ons-button>
+            <ons-button id="btnSignUp">Sign up </ons-button>
+          
+        </div>
+
+    </ons-page>
+  </ons-navigator>
+
+  <script src="login.js"></script>
 </body>
 </html>
