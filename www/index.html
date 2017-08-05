@@ -36,9 +36,9 @@
 <body>
 
   <ons-navigator id="myNavigator" page="index.html">
-    <ons-page id="index">
+   <ons-page id="index">
       <ons-toolbar>
-        <div class="center">Login or SignUp</div>
+        <div class="center" style="text-align: center">Login or Sign Up</div>
       </ons-toolbar>
         <h1 style="text-align: center"> Work Rewards </h1>
         <img src="tools.png" alt="Work Rewards" style="display: block; margin: auto;">
@@ -52,14 +52,14 @@
             <ons-input id="txtPassword" type="password" modifier="underbar" placeholder="Password" float></ons-input>
           </p>
 
-            <ons-button id="btnLogin">Log in </ons-button>
-            <ons-button id="btnSignUp">Sign up </ons-button>
+            <ons-button id="btnLogin" onclick="login()">Log in </ons-button>
+            <ons-button id="btnSignUp" onclick="signUp()">Sign up </ons-button>
           
         </div>
 
     </ons-page>
   </ons-navigator>
 
-  <script src="login.js"></script>
+  <script src="login2.js"></script>
 </body>
 </html>

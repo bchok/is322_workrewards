@@ -1,24 +1,37 @@
-window.fn = {};
-window.fn.data = null;
+var login = function (){
+    const txtEmail = document.getElementById('txtEmail');
+    const txtPassword = document.getElementById('txtPassword');
 
-ons.ready(function(){
-    document.addEventListener('click', function(event){
-        if(event.target.id == "index"){
-            const btnLogin = document.getElementById('btnLogin');
-            const txtEmail = document.getElementById('txtEmail');
-            const txtPassword = document.getElementById('txtPassword');
+    //get email and pass
+    const email = txtEmail.value;
+    const pass = txtPassword.value;
+    const auth = firebase.auth();
 
-            //signin
-            const promise = auth.signInWithEmailAndPassword(email, pass);
-            promise.catch(event => console.log(e.message));
-        }
-        if(event.target.id == "profile"){
-            const btnLogout = document.getElementById('btnLogout');
-            firebase.auth().signOut();
-        }
+    //signin
+    const promise = auth.signInWithEmailAndPassword(email, pass);
+    document.getElementById('myNavigator').pushPage('homeScreen.html');
 
+};
+
+var signUp = function () {
+    const txtEmail = document.getElementById('txtEmail');
+    const txtPassword = document.getElementById('txtPassword');
+
+    
+    const email = txtEmail.value;
+    const pass = txtPassword.value;
+    const auth = firebase.auth();
+
+    //signup
+    const promise = auth.createUserWithEmailAndPassword(email, pass);
+};
+
+var logout = function() {
+    firebase.auth().signOut();
+    ons.ready(function (){
+        document.getElementById('myNavigator').pushPage('login.html');
     });
-});
+};
 
 //Authentication Listener
 firebase.auth().onAuthStateChanged(firebaseUser => {
@@ -27,6 +40,5 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         document.getElementById('myNavigator').pushPage('homeScreen.html');
     } else {
         console.log('not logged in');
-        document.getElementById('myNavigator').pushPage('index.html');
     }
 });

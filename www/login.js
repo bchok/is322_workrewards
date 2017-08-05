@@ -30,16 +30,6 @@ btnSignUp.addEventListener('click', e => {
 
 });
 
-document.addEventListener('init', function(event){
-    if (event.target.matches('#profile')) {
-        var btnLogout = event.target.querySelector('btnLogout');
-        btnLogout.addEventListener('click', e => {
-            firebase.auth().signOut();
-        });
-    }
-});
-
-
 //Authentication Listener
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if(firebaseUser) {
